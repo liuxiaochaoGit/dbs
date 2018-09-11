@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+</head>
+<body>
+<h1 onclick="sendLsBySocket()">发送ls</h1>
+</body>
+<script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script>
+<script src="/javascripts/keyboardcode.js"></script>
+<script>
+    var socket = io('http://127.0.0.1:1027');
+
+    socket.emit('nicai', {msg: 1234});
+    socket.on('result', (er) => {
+        console.log(er);
+    });
+    socket.on('message', (er) => {
+        console.log(er);
+        var arr = [];
+        er.result.order.split('').map((item) => {
+            console.log(item);
+            var keycode = getKeyCode(item);
+            arr.push(keycode);
+        });
+        console.log(arr);
+    });
+    function sendLsBySocket(){
+        socket.emit('msg', {order: 'ls'});
+    }
+</script>
+</html>

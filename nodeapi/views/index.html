@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>测试登录</h1>
+<form method="post" action="/user/login">
+    <input type="text" name="user"><br>
+    <input type="text" name="pass"><br>
+    <input type="submit" value="登录">
+</form>
+<h3>测试添加</h3>
+<form method="post" action="/note/noteInfo">
+    <input type="text" name="noteType">
+    <input type="submit" value="测试添加">
+</form>
+<h3>测试编辑</h3>
+<form method="post" action="/note/noteInfo">
+    <input type="text" value="" name="id" placeholder="id">
+    <input type="submit" value="测试编辑">
+</form>
+<h3>测试根据type获取list</h3>
+<form method="post" action="/note/getList">
+    <input type="text" name="noteType" placeholder="汽车、美食、测试">
+    <input type="hidden" name="page" value="0">
+    <input type="submit" value="获取list">
+</form>
+<h3>测试所有获取list</h3>
+<form method="post" action="/note/getList">
+    <input type="hidden" name="page" value="0">
+    <input type="submit" value="获取list">
+</form>
+<h3>测试点赞</h3>
+<form method="get" action="/note/fabulous">
+    <input type="text" value="" name="id" placeholder="id">
+    <input type="submit" value="测试点赞">
+</form>
+
+<br>
+<br>
+<button onclick="testSocket()">测试socket</button>
+
+<br><br>
+<button onclick="testClients()">打开一个新的页面，测试socket多个client</button>
+</body>
+<script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script>
+<script>
+    var socket = io('http://127.0.0.1:1027');
+    console.log(socket);
+
+    function testSocket() {
+        console.log(2324);
+        socket.emit('nicai', {msg: 1234});
+        socket.on('result', function (er) {
+            console.log(er);
+        });
+    }
+
+    function testSocket2() {
+        // 初始化一个 WebSocket 对象
+        var ws = new WebSocket("http://127.0.0.1:1027");
+
+        // 建立 web socket 连接成功触发事件
+        ws.onopen = function () {
+            // 使用 send() 方法发送数据
+            ws.send("发送数据");
+            alert("数据发送中...");
+        };
+
+        // 接收服务端数据时触发事件
+        ws.onmessage = function (evt) {
+            var received_msg = evt.data;
+            alert("数据已接收...");
+        };
+
+        // 断开 web socket 连接成功触发事件
+        ws.onclose = function () {
+            alert("连接已关闭...");
+        };
+    }
+    // 测试socket多个client
+    function testClients(){
+        window.open('/socket');
+    }
+</script>
+</html>

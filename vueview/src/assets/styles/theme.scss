@@ -1,0 +1,168 @@
+/*
+    主题颜色设置
+    $color-primary  需要更改的背景颜色
+    $font-color   字体颜色
+*/
+
+
+// @import url('./my-mint.scss');
+$color-primary: #75d29a;
+$font-color: #fff;
+
+.mint-header {
+    background-color: $color-primary;
+    color: $font-color;
+}
+
+.mint-button:not(.is-disabled):active::after {
+    opacity: .2 /* .6 */
+}
+
+.mint-button--primary {
+    background-color: $color-primary;
+}
+
+.mint-button--primary.is-plain {
+    border: 1px solid $color-primary;
+    color: $color-primary
+}
+
+.mint-badge.is-primary {
+    background-color: $color-primary
+}
+
+.mint-switch-input:checked + .mint-switch-core {
+    border-color: $color-primary;
+    background-color: $color-primary;
+}
+
+.mint-navbar .mint-tab-item.is-selected {
+    border-bottom: 3px solid $color-primary;
+    color: $color-primary;
+}
+
+.mint-tabbar > .mint-tab-item.is-selected {
+    color: $color-primary;
+}
+
+.mint-searchbar-cancel {
+    color: $color-primary;
+}
+
+.mint-checkbox-input:checked + .mint-checkbox-core {
+    background-color: $color-primary;
+    border-color: $color-primary;
+}
+
+.mint-radio-input:checked + .mint-radio-core {
+    background-color: $color-primary;
+    border-color: $color-primary;
+}
+
+.mt-range-progress {
+    background-color: $color-primary;
+}
+
+.mt-progress-progress {
+    background-color: $color-primary;
+}
+
+.mint-msgbox-confirm {
+    color: $color-primary;
+}
+
+.mint-msgbox-confirm:active {
+    color: $color-primary;
+}
+
+.mint-datetime-action {
+    color: $color-primary;
+}
+
+//
+.icon {
+    color: $color-primary;
+}
+
+.tab_active {
+    color: $color-primary;
+}
+
+.icon_box {
+    background: $color-primary;
+    .icon {
+        color: $font-color;
+    }
+}
+
+.publish_box{
+    .publish {
+        // background: $color-primary;
+        color: $color-primary;
+        .icon {
+            color: $color-primary;
+        }
+    }
+}
+
+
+.is-selected {
+    background: $color-primary !important;
+    color: #fff !important;
+    .publish {
+        background: $color-primary !important;
+        box-shadow: 0px 3px 5px #fff inset !important;
+        .icon {
+            color: #fff;
+        }
+    }
+    a{
+        color:#fff;
+        i{
+            color: #fff;
+        }
+    }
+}
+/*
+    另一个风格的底部导航，使用方法
+    main.vue  mt-tabbar元素上面添加class   main_Tabbar
+*/
+.main_Tabbar{
+    .icon{
+        color:#ccc;
+    }
+    .is-selected {
+        background: unset !important;
+        color: $color-primary !important;
+        .publish {
+            // background: $color-primary !important;
+            box-shadow: 0px 3px 5px $color-primary inset !important;
+            .icon {
+                color: $color-primary;
+            }
+        }
+        a{
+            color:$color-primary;
+            i{
+                color: $color-primary;
+            }
+        }
+    }
+    .publish_box{
+        .publish {
+            // background: $color-primary;
+            color: $color-primary;
+            .icon {
+                // color: $color-primary;
+            }
+        }
+    }
+}
+/* end */
+
+.mint-navbar{
+    .tab_active{
+        color: $color-primary !important;
+        background: #f5f7fa !important;
+    }
+}

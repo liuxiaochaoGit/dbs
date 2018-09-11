@@ -1,0 +1,85 @@
+/*
+    登录/注册页面样式
+*/
+.login_box {
+    width: 80%;
+    height: 50%;
+    margin: 38% auto;
+    box-shadow: 0.3rem 0.3rem 1rem #ccc;
+    border-radius: 6px;
+    padding-top: 2rem;
+    box-sizing: border-box;
+    .user_head {
+        position: relative;
+        margin: auto;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        background: #eee;
+        border: 0.3rem solid #fff;
+        box-shadow: 0.3rem 0.3rem 1rem #ccc, 0.3rem 0.3rem 1rem #ccc inset;
+        .icon {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.3rem;
+            color: #ccc;
+        }
+    }
+
+    .user_center {
+        width: auto;
+        margin: 3rem 3rem 0 3rem;
+        & > div {
+            border: 1px solid #ccc;
+            border-radius: 0.8rem;
+            margin-bottom: 1rem;
+            padding: 0.2em 0rem 0.3rem 0.3rem;
+            box-sizing: border-box;
+            i {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 1rem;
+                color: #666;
+            }
+            input {
+                display: inline-block;
+                vertical-align: middle;
+                width: calc(100% - 2rem);
+                padding-left: 0.3rem;
+                outline: none;
+                border: none;
+                background: rgba(0, 0, 0, 0);
+                box-sizing: border-box;
+            }
+            .col {
+                padding: 0 3px;
+            }
+        }
+        .row {
+            border: none;
+            padding: 0;
+            margin-bottom: 1rem;
+            button{
+                height: 2.2rem;
+                border-radius: 0.9rem;
+            }
+        }
+        a{
+            display: inline-block;
+            width: 100%;
+            text-align: right;
+            margin-top: 0.3rem;
+            //float: right;
+        }
+    }
+}
+.foot{
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+
