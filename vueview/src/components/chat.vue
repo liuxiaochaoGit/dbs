@@ -1,14 +1,14 @@
 <template>
     <div>
         <mt-header :title="chatUser.name">
-            <router-link to="/groom" slot="left" @click.native="">
+            <router-link to="/groom" slot="left">
                 <mt-button icon="back">返回</mt-button>
             </router-link>
             <mt-button slot="right"></mt-button>
         </mt-header>
         <div class="content">
             <div class="message_box" id="msgBox">
-                <div v-for="msg,index in msgList"
+                <div v-for="msg,index in msgList" :key="index"
                      :class="msg.align == 'right' ? 'message message_right' : 'message message_left'">
                     <div class="head_img">
                         <img src="../assets/images/touxiang.png" alt="">
@@ -55,14 +55,14 @@
         sockets: {
             connect: function () {
                 let vm = this;
-                /*this.id = this.$socket.id;
+                this.id = this.$socket.id;
                 let userObj = {
                     userId: tool.getUser().id,
                     userName: tool.getUser().name,
                     portrait: tool.getUser().portrait,
                     socketId: this.$socket.id
                 };
-                this.$socket.emit('join', userObj);*/
+                this.$socket.emit('join', userObj);
                 this.$socket.on('joined', (res) => {
                     console.log(res);
                 });
@@ -78,14 +78,6 @@
         },
         mounted(){
             // this.$socket.emit('connect', '');
-            this.id = this.$socket.id;
-            let userObj = {
-                userId: tool.getUser().id,
-                userName: tool.getUser().name,
-                portrait: tool.getUser().portrait,
-                socketId: this.$socket.id
-            };
-            this.$socket.emit('join', userObj);
         },
         methods: {
             senMsg() {

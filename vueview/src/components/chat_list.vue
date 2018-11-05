@@ -1,6 +1,6 @@
 <template>
     <div id="chatlist">
-        <mt-cell v-for="item,index in list" :title="item.name" :label="item.sex" @click.native="toChat(item)" class="chart_item">
+        <mt-cell v-for="item,index in list" :key="index" :title="item.name" :label="item.sex" @click.native="toChat(item)" class="chart_item">
             <div>
                 <img slot="icon" src="../assets/images/touxiang.png" width="24" height="24">
             </div>

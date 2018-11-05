@@ -15,7 +15,7 @@
                 </div>
                 <div class="row">
                     <mt-button @click="submit" type="primary" size="large">登录</mt-button>
-                    <a href="javascript:;" @click="">忘记密码？(建设中...)</a>
+                    <a href="javascript:;">忘记密码？(建设中...)</a>
                 </div>
             </div>
         </div>

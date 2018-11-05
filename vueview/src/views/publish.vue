@@ -15,7 +15,7 @@
             <div class="select_wrap">
                 <li class="select_item" @click="showSelect">{{select.type}}</li>
                 <ul class="select_box">
-                    <li v-for="item,index in gamitList"
+                    <li v-for="(item,index) in gamitList" :key="item"
                         :style="{'top':topList[index],'background':index == select.id ? '#75d29a' : '#fff'}"
                         :index="index" @click="selectMouseover(index)" class="select_item">{{gamitList[index]}}
                     </li>
@@ -27,7 +27,7 @@
                        accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
             </div>
             <div class="img_show">
-                <div v-for="imageSrc,index in image.list">
+                <div v-for="(imageSrc,index) in image.list" :key="imageSrc">
                     <span v-show="isDel == index" @click="delImage(index)">x</span>
                     <img :src="imageSrc" alt="" @mouseover="isDelShow(index)">
                 </div>

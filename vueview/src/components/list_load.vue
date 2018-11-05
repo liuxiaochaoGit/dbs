@@ -5,16 +5,16 @@
             infinite-scroll-disabled="loading"
             infinite-scroll-distance="10"-->
             <!--<div v-if="isData">暂无数据</div>-->
-            <li v-for="item,index in list">
+            <li v-for="(item,index) in list" :key="index">
                 <div class="top" @click="toAuthor(item)">
                     <div>
                         <img :src="item.noteAuthor.portrait" class="" alt="">
                     </div>
                     <span>{{item.noteAuthor.nickname}}</span>
                 </div>
-                <div class="con">
+                <div class="con" @click="toAticle()">
                     <p>{{item.noteText}}</p>
-                    <img v-for="srcItem in item.picture" :preview="index" :preview-text="item.noteText" :src="srcItem" alt="">
+                    <img v-for="srcItem in item.picture" :key="srcItem" :preview="index" :preview-text="item.noteText" :src="srcItem" alt="">
                 </div>
                 <div class="bot">
                     <div title="ding" @click="fabulous(item._id)">
